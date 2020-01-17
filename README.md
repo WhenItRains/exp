@@ -79,6 +79,11 @@
 
         }
     }
+    	如果文件很大，在springboot配置文件中，更改文件大小
+	文件上传大小为20M 
+	spring.servlet.multipart.max-file-size=20MB
+	请求大小为20M
+	spring.servlet.multipart.max-request-size=20MB
 
 ## 前端代码:
 
