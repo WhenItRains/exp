@@ -127,6 +127,9 @@ apt-get install vim -y
 ## 查看linux版本
 > rpm -q centos-release
 
+## 安装tar命令
+> yum install -y tar
+
 ## 查询是否有vim
 > rpm -qa|grep vim
 
