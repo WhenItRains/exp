@@ -72,32 +72,33 @@
 
 1. [解决linux下tomcat停止进程任存在问题]https://www.jianshu.com/p/ab14b7718016
 2. 根据查找办法，*将自己使用的线程池设置为守护线程*，并且，*在项目停止的回调方法中,释放线程资源*
-
 **代码补充**:
 1. 自己使用的线程池设置为守护线程
-   
-    `@Bean
+```java
+ @Bean
     public ExecutorService threadPool(){
-
         ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
                 .setNameFormat("    kafkaThredadPool-%d").setDaemon(true).build();
         ExecutorService singleThreadPool = new ThreadPoolExecutor(4, 6,
                 0L, TimeUnit.MILLISECONDS,
                 new LinkedBlockingQueue<Runnable>(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
-
         return singleThreadPool;
-    }`
+    }
+```
 2. 在项目停止的回调方法中,释放线程资源
-
-    `@Component
-    public class EndGlobalKeyboard {
-    
-        @PreDestroy
-        public void destory() throws Exception {
-            //你的代码
-        }
-    }`
-
+```java
+@Component
+public class EndGlobalKeyboard {
+    private static Logger logger = LoggerFactory.getLogger(EndGlobalKeyboard.class);
+    @Resource
+    private ExecutorService threadPool;
+    @PreDestroy
+    public void destory() throws Exception {
+        logger.info("destory 关闭" + threadPool.isShutdown());
+        threadPool.shutdown();
+    }
+}
+```
 
 # 图片下载
 
