@@ -1,51 +1,52 @@
 <!-- TOC -->
 
-- [工作问题总结](#%E5%B7%A5%E4%BD%9C%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93)
-    - [守护线程问题 (setDaemon)](#%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B%E9%97%AE%E9%A2%98-setdaemon)
-- [图片下载](#%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD)
-    - [java 后端代码:](#java-%E5%90%8E%E7%AB%AF%E4%BB%A3%E7%A0%81)
-    - [前端代码:](#%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81)
-        - [第一种方式：](#%E7%AC%AC%E4%B8%80%E7%A7%8D%E6%96%B9%E5%BC%8F)
-        - [第二种方式：](#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E5%BC%8F)
-- [Linux和docker 命令](#linux%E5%92%8Cdocker-%E5%91%BD%E4%BB%A4)
-    - [进入docker 某项目中](#%E8%BF%9B%E5%85%A5docker-%E6%9F%90%E9%A1%B9%E7%9B%AE%E4%B8%AD)
-    - [进入docker后退出](#%E8%BF%9B%E5%85%A5docker%E5%90%8E%E9%80%80%E5%87%BA)
-    - [docker安装vim 和yum 命令](#docker%E5%AE%89%E8%A3%85vim-%E5%92%8Cyum-%E5%91%BD%E4%BB%A4)
-    - [XShell上传文件到Linux服务器上](#xshell%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A)
-    - [rz、sz命令找不到：](#rzsz%E5%91%BD%E4%BB%A4%E6%89%BE%E4%B8%8D%E5%88%B0)
-    - [删除容器](#%E5%88%A0%E9%99%A4%E5%AE%B9%E5%99%A8)
-    - [查看linux版本](#%E6%9F%A5%E7%9C%8Blinux%E7%89%88%E6%9C%AC)
-    - [安装tar命令](#%E5%AE%89%E8%A3%85tar%E5%91%BD%E4%BB%A4)
-    - [查询是否有vim](#%E6%9F%A5%E8%AF%A2%E6%98%AF%E5%90%A6%E6%9C%89vim)
-    - [安装vim](#%E5%AE%89%E8%A3%85vim)
-    - [更新profile配置](#%E6%9B%B4%E6%96%B0profile%E9%85%8D%E7%BD%AE)
-- [Linux设置tomcat开机自启动](#linux%E8%AE%BE%E7%BD%AEtomcat%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8)
-    - [(一) 将tomcat配置为系统服务：创建tomcat8服务文件](#%E4%B8%80-%E5%B0%86tomcat%E9%85%8D%E7%BD%AE%E4%B8%BA%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E5%88%9B%E5%BB%BAtomcat8%E6%9C%8D%E5%8A%A1%E6%96%87%E4%BB%B6)
-    - [(二) tomcat8.service 文件内容：](#%E4%BA%8C-tomcat8service-%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9)
-    - [(三) 接下来配置tomcat开机启动：](#%E4%B8%89-%E6%8E%A5%E4%B8%8B%E6%9D%A5%E9%85%8D%E7%BD%AEtomcat%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8)
-    - [(四) 现在就让我们重启一下，然后查看一下服务里面有没有，就知道成不成功了。](#%E5%9B%9B-%E7%8E%B0%E5%9C%A8%E5%B0%B1%E8%AE%A9%E6%88%91%E4%BB%AC%E9%87%8D%E5%90%AF%E4%B8%80%E4%B8%8B%E7%84%B6%E5%90%8E%E6%9F%A5%E7%9C%8B%E4%B8%80%E4%B8%8B%E6%9C%8D%E5%8A%A1%E9%87%8C%E9%9D%A2%E6%9C%89%E6%B2%A1%E6%9C%89%E5%B0%B1%E7%9F%A5%E9%81%93%E6%88%90%E4%B8%8D%E6%88%90%E5%8A%9F%E4%BA%86)
-    - [(五) 如果查找到有2个的话就是成功了Linux设置tomcat开机自启动：](#%E4%BA%94-%E5%A6%82%E6%9E%9C%E6%9F%A5%E6%89%BE%E5%88%B0%E6%9C%892%E4%B8%AA%E7%9A%84%E8%AF%9D%E5%B0%B1%E6%98%AF%E6%88%90%E5%8A%9F%E4%BA%86linux%E8%AE%BE%E7%BD%AEtomcat%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8)
-    - [(六）其他用到命令和知识](#%E5%85%AD%E5%85%B6%E4%BB%96%E7%94%A8%E5%88%B0%E5%91%BD%E4%BB%A4%E5%92%8C%E7%9F%A5%E8%AF%86)
-        - [移除开机项](#%E7%A7%BB%E9%99%A4%E5%BC%80%E6%9C%BA%E9%A1%B9)
-        - [Systemd的启动顺序](#systemd%E7%9A%84%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F)
-- [Tomcat和JDK安装](#tomcat%E5%92%8Cjdk%E5%AE%89%E8%A3%85)
-    - [环境描述：](#%E7%8E%AF%E5%A2%83%E6%8F%8F%E8%BF%B0)
-    - [可用本地电脑下载jdk1.81.可用本地电脑下载jdk1.8](#%E5%8F%AF%E7%94%A8%E6%9C%AC%E5%9C%B0%E7%94%B5%E8%84%91%E4%B8%8B%E8%BD%BDjdk181%E5%8F%AF%E7%94%A8%E6%9C%AC%E5%9C%B0%E7%94%B5%E8%84%91%E4%B8%8B%E8%BD%BDjdk18)
-    - [安装上传工具2.安装上传工具](#%E5%AE%89%E8%A3%85%E4%B8%8A%E4%BC%A0%E5%B7%A5%E5%85%B72%E5%AE%89%E8%A3%85%E4%B8%8A%E4%BC%A0%E5%B7%A5%E5%85%B7)
-    - [jdk上传OK后解压](#jdk%E4%B8%8A%E4%BC%A0ok%E5%90%8E%E8%A7%A3%E5%8E%8B)
-    - [jdk环境变量配置](#jdk%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE)
-    - [更新profile文件](#%E6%9B%B4%E6%96%B0profile%E6%96%87%E4%BB%B6)
-    - [查看java版本](#%E6%9F%A5%E7%9C%8Bjava%E7%89%88%E6%9C%AC)
-    - [下载tomcat8](#%E4%B8%8B%E8%BD%BDtomcat8)
-    - [上传tomcat8并解压](#%E4%B8%8A%E4%BC%A0tomcat8%E5%B9%B6%E8%A7%A3%E5%8E%8B)
-        - [启动tomcat](#%E5%90%AF%E5%8A%A8tomcat)
-    - [页面验证](#%E9%A1%B5%E9%9D%A2%E9%AA%8C%E8%AF%81)
-    - [此为防火墙在开启状态，访问被阻，关闭防火墙或者允许页面端口通过都可以。](#%E6%AD%A4%E4%B8%BA%E9%98%B2%E7%81%AB%E5%A2%99%E5%9C%A8%E5%BC%80%E5%90%AF%E7%8A%B6%E6%80%81%E8%AE%BF%E9%97%AE%E8%A2%AB%E9%98%BB%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E6%88%96%E8%80%85%E5%85%81%E8%AE%B8%E9%A1%B5%E9%9D%A2%E7%AB%AF%E5%8F%A3%E9%80%9A%E8%BF%87%E9%83%BD%E5%8F%AF%E4%BB%A5)
-    - [生产环境建议开启端口即可，增强服务器安全性：](#%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E5%BB%BA%E8%AE%AE%E5%BC%80%E5%90%AF%E7%AB%AF%E5%8F%A3%E5%8D%B3%E5%8F%AF%E5%A2%9E%E5%BC%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8%E6%80%A7)
-    - [久违的tomcat页面显示OK](#%E4%B9%85%E8%BF%9D%E7%9A%84tomcat%E9%A1%B5%E9%9D%A2%E6%98%BE%E7%A4%BAok)
-    - [部署遇到问题](#%E9%83%A8%E7%BD%B2%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98)
+- [工作问题总结](#%e5%b7%a5%e4%bd%9c%e9%97%ae%e9%a2%98%e6%80%bb%e7%bb%93)
+  - [守护线程问题 (setDaemon)](#%e5%ae%88%e6%8a%a4%e7%ba%bf%e7%a8%8b%e9%97%ae%e9%a2%98-setdaemon)
+- [图片下载](#%e5%9b%be%e7%89%87%e4%b8%8b%e8%bd%bd)
+  - [java 后端代码:](#java-%e5%90%8e%e7%ab%af%e4%bb%a3%e7%a0%81)
+  - [前端代码:](#%e5%89%8d%e7%ab%af%e4%bb%a3%e7%a0%81)
+    - [第一种方式：](#%e7%ac%ac%e4%b8%80%e7%a7%8d%e6%96%b9%e5%bc%8f)
+    - [第二种方式：](#%e7%ac%ac%e4%ba%8c%e7%a7%8d%e6%96%b9%e5%bc%8f)
+- [Linux和docker 命令](#linux%e5%92%8cdocker-%e5%91%bd%e4%bb%a4)
+  - [进入docker 某项目中](#%e8%bf%9b%e5%85%a5docker-%e6%9f%90%e9%a1%b9%e7%9b%ae%e4%b8%ad)
+  - [进入docker后退出](#%e8%bf%9b%e5%85%a5docker%e5%90%8e%e9%80%80%e5%87%ba)
+  - [docker安装vim 和yum 命令](#docker%e5%ae%89%e8%a3%85vim-%e5%92%8cyum-%e5%91%bd%e4%bb%a4)
+  - [XShell上传文件到Linux服务器上](#xshell%e4%b8%8a%e4%bc%a0%e6%96%87%e4%bb%b6%e5%88%b0linux%e6%9c%8d%e5%8a%a1%e5%99%a8%e4%b8%8a)
+  - [rz、sz命令找不到：](#rzsz%e5%91%bd%e4%bb%a4%e6%89%be%e4%b8%8d%e5%88%b0)
+  - [删除容器](#%e5%88%a0%e9%99%a4%e5%ae%b9%e5%99%a8)
+  - [查看linux版本](#%e6%9f%a5%e7%9c%8blinux%e7%89%88%e6%9c%ac)
+  - [安装tar命令](#%e5%ae%89%e8%a3%85tar%e5%91%bd%e4%bb%a4)
+  - [查询是否有vim](#%e6%9f%a5%e8%af%a2%e6%98%af%e5%90%a6%e6%9c%89vim)
+  - [安装vim](#%e5%ae%89%e8%a3%85vim)
+  - [更新profile配置](#%e6%9b%b4%e6%96%b0profile%e9%85%8d%e7%bd%ae)
+- [Linux设置tomcat开机自启动](#linux%e8%ae%be%e7%bd%aetomcat%e5%bc%80%e6%9c%ba%e8%87%aa%e5%90%af%e5%8a%a8)
+  - [(一) 将tomcat配置为系统服务：创建tomcat8服务文件](#%e4%b8%80-%e5%b0%86tomcat%e9%85%8d%e7%bd%ae%e4%b8%ba%e7%b3%bb%e7%bb%9f%e6%9c%8d%e5%8a%a1%e5%88%9b%e5%bb%batomcat8%e6%9c%8d%e5%8a%a1%e6%96%87%e4%bb%b6)
+  - [(二) tomcat8.service 文件内容：](#%e4%ba%8c-tomcat8service-%e6%96%87%e4%bb%b6%e5%86%85%e5%ae%b9)
+  - [(三) 接下来配置tomcat开机启动：](#%e4%b8%89-%e6%8e%a5%e4%b8%8b%e6%9d%a5%e9%85%8d%e7%bd%aetomcat%e5%bc%80%e6%9c%ba%e5%90%af%e5%8a%a8)
+  - [(四) 现在就让我们重启一下，然后查看一下服务里面有没有，就知道成不成功了。](#%e5%9b%9b-%e7%8e%b0%e5%9c%a8%e5%b0%b1%e8%ae%a9%e6%88%91%e4%bb%ac%e9%87%8d%e5%90%af%e4%b8%80%e4%b8%8b%e7%84%b6%e5%90%8e%e6%9f%a5%e7%9c%8b%e4%b8%80%e4%b8%8b%e6%9c%8d%e5%8a%a1%e9%87%8c%e9%9d%a2%e6%9c%89%e6%b2%a1%e6%9c%89%e5%b0%b1%e7%9f%a5%e9%81%93%e6%88%90%e4%b8%8d%e6%88%90%e5%8a%9f%e4%ba%86)
+  - [(五) 如果查找到有2个的话就是成功了Linux设置tomcat开机自启动：](#%e4%ba%94-%e5%a6%82%e6%9e%9c%e6%9f%a5%e6%89%be%e5%88%b0%e6%9c%892%e4%b8%aa%e7%9a%84%e8%af%9d%e5%b0%b1%e6%98%af%e6%88%90%e5%8a%9f%e4%ba%86linux%e8%ae%be%e7%bd%aetomcat%e5%bc%80%e6%9c%ba%e8%87%aa%e5%90%af%e5%8a%a8)
+  - [(六）其他用到命令和知识](#%e5%85%ad%e5%85%b6%e4%bb%96%e7%94%a8%e5%88%b0%e5%91%bd%e4%bb%a4%e5%92%8c%e7%9f%a5%e8%af%86)
+    - [移除开机项](#%e7%a7%bb%e9%99%a4%e5%bc%80%e6%9c%ba%e9%a1%b9)
+    - [Systemd的启动顺序](#systemd%e7%9a%84%e5%90%af%e5%8a%a8%e9%a1%ba%e5%ba%8f)
+- [Tomcat和JDK安装](#tomcat%e5%92%8cjdk%e5%ae%89%e8%a3%85)
+  - [环境描述：](#%e7%8e%af%e5%a2%83%e6%8f%8f%e8%bf%b0)
+  - [可用本地电脑下载jdk1.81.可用本地电脑下载jdk1.8](#%e5%8f%af%e7%94%a8%e6%9c%ac%e5%9c%b0%e7%94%b5%e8%84%91%e4%b8%8b%e8%bd%bdjdk181%e5%8f%af%e7%94%a8%e6%9c%ac%e5%9c%b0%e7%94%b5%e8%84%91%e4%b8%8b%e8%bd%bdjdk18)
+  - [安装上传工具2.安装上传工具](#%e5%ae%89%e8%a3%85%e4%b8%8a%e4%bc%a0%e5%b7%a5%e5%85%b72%e5%ae%89%e8%a3%85%e4%b8%8a%e4%bc%a0%e5%b7%a5%e5%85%b7)
+  - [jdk上传OK后解压](#jdk%e4%b8%8a%e4%bc%a0ok%e5%90%8e%e8%a7%a3%e5%8e%8b)
+  - [jdk环境变量配置](#jdk%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f%e9%85%8d%e7%bd%ae)
+  - [更新profile文件](#%e6%9b%b4%e6%96%b0profile%e6%96%87%e4%bb%b6)
+  - [查看java版本](#%e6%9f%a5%e7%9c%8bjava%e7%89%88%e6%9c%ac)
+  - [下载tomcat8](#%e4%b8%8b%e8%bd%bdtomcat8)
+  - [上传tomcat8并解压](#%e4%b8%8a%e4%bc%a0tomcat8%e5%b9%b6%e8%a7%a3%e5%8e%8b)
+    - [启动tomcat](#%e5%90%af%e5%8a%a8tomcat)
+  - [页面验证](#%e9%a1%b5%e9%9d%a2%e9%aa%8c%e8%af%81)
+  - [此为防火墙在开启状态，访问被阻，关闭防火墙或者允许页面端口通过都可以。](#%e6%ad%a4%e4%b8%ba%e9%98%b2%e7%81%ab%e5%a2%99%e5%9c%a8%e5%bc%80%e5%90%af%e7%8a%b6%e6%80%81%e8%ae%bf%e9%97%ae%e8%a2%ab%e9%98%bb%e5%85%b3%e9%97%ad%e9%98%b2%e7%81%ab%e5%a2%99%e6%88%96%e8%80%85%e5%85%81%e8%ae%b8%e9%a1%b5%e9%9d%a2%e7%ab%af%e5%8f%a3%e9%80%9a%e8%bf%87%e9%83%bd%e5%8f%af%e4%bb%a5)
+  - [生产环境建议开启端口即可，增强服务器安全性：](#%e7%94%9f%e4%ba%a7%e7%8e%af%e5%a2%83%e5%bb%ba%e8%ae%ae%e5%bc%80%e5%90%af%e7%ab%af%e5%8f%a3%e5%8d%b3%e5%8f%af%e5%a2%9e%e5%bc%ba%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%ae%89%e5%85%a8%e6%80%a7)
+  - [久违的tomcat页面显示OK](#%e4%b9%85%e8%bf%9d%e7%9a%84tomcat%e9%a1%b5%e9%9d%a2%e6%98%be%e7%a4%baok)
+  - [部署遇到问题](#%e9%83%a8%e7%bd%b2%e9%81%87%e5%88%b0%e9%97%ae%e9%a2%98)
 
 <!-- /TOC -->
+
 # 工作问题总结
 
 ## 守护线程问题 (setDaemon)
@@ -76,14 +77,14 @@
 1. 自己使用的线程池设置为守护线程
 ```java
  @Bean
-    public ExecutorService threadPool(){
-        ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
-                .setNameFormat("    kafkaThredadPool-%d").setDaemon(true).build();
-        ExecutorService singleThreadPool = new ThreadPoolExecutor(4, 6,
-                0L, TimeUnit.MILLISECONDS,
-                new LinkedBlockingQueue<Runnable>(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
-        return singleThreadPool;
-    }
+public ExecutorService threadPool(){
+    ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
+            .setNameFormat("    kafkaThredadPool-%d").setDaemon(true).build();
+    ExecutorService singleThreadPool = new ThreadPoolExecutor(4, 6,
+            0L, TimeUnit.MILLISECONDS,
+            new LinkedBlockingQueue<Runnable>(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
+    return singleThreadPool;
+}
 ```
 2. 在项目停止的回调方法中,释放线程资源
 ```java
